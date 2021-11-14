@@ -1,0 +1,25 @@
+{
+  "name": "andruavwebplugin",
+  "version": "1.0.14",
+  "description": "Transfers telemetry data between Andruav Webclient and Mission Planner, QGroundControl ...etc.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ./bin/andruavplugin.js"
+  },
+  "keywords": [
+    "webrtc",
+    "p2p",
+    "peer"
+  ],
+  "dependencies": {
+    "commander": "^2.20.0",
+    "jspack": "^0.0.4",
+    "underscore": "^1.9.1",
+    "ws": "^6.2.1"
+  },
+  "bin": {
+    "andruavplugin": "andruavplugin.js"
+  },
+  "author": "Mohammad Said Hefny - rcmobilestuff <rcmobilestuff@gmail.com> (http://www.andruav.com)",
+  "license": "ISC"
+}
