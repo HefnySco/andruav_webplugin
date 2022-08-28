@@ -1,12 +1,6 @@
 "use strict";
 var dgram = require('dgram');
-var jspack = require("jspack").jspack
-var mavlink = require('./mavlink2');
-var MAV = new MAVLink(null,1,1);
 
-
-var HOST = '0.0.0.0';
-var BroadCastTo = '0.0.0.0';
 var server = undefined;
 
 var remoteSocket = undefined;
