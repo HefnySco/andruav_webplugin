@@ -1,8 +1,9 @@
 # Andruav Web-Plugin
+[![N|Solid](http://www.andruav.com/_static/andruav.png)](https://nodesource.com/products/nsolid)
 
-[![N|Solid](http://www.andruav.com/images/andruav.png)](https://nodesource.com/products/nsolid)
+Andruav is an interconnected Android-based system that allow both vehicle-to-vehicle and vehicle-to-GCS communication and control. 
 
-Andruav is an interconnected Android-based system that allow both vehicle-to-vehicle and vehicle-to-GCS communication and control. please see [andruav.com]
+Andruav & Drone-Engage are part of **Ardupilot Eco-System** now please see [cloud.ardupilot.org]
 
 ONLY two mobile devices and Andruav are what you need to get Imaging & FPV Gears and Unlimited Telemetry Range over Wifi & 3G/4G. 
 
@@ -37,5 +38,5 @@ you can use -p to change the UDP port that app sends packet to, default port is 
 you can use -i to change the UDP target ip. By default the app broadcast packets to all available IPs "255.255.255.255".
 That means you can use multipl GCS to access your drone.
 
-   [andruav.com]: <http://www.andruav.com>
-   [Andruav-web]: <http://andruav.com/arcs/andruavweb.html>
+   [andruav.com]: <http://cloud.ardupilot.org>
+   [Andruav-web]: <https://cloud.ardupilot.org:8001/webclient.html>
