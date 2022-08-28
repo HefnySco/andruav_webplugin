@@ -1,6 +1,6 @@
 {
   "name": "andruavwebplugin",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Transfers telemetry data between Andruav Webclient and Mission Planner, QGroundControl ...etc.",
   "main": "main.js",
   "scripts": {
