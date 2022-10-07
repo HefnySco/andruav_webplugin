@@ -9,7 +9,17 @@
             "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceRoot}/andruavplugin.js",
-            "cwd": "${workspaceRoot}"
+            "cwd": "${workspaceRoot}",
+            "stopOnEntry": true
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Serial",
+            "program": "${workspaceRoot}/andruavplugin.js",
+            "cwd": "${workspaceRoot}",
+            "stopOnEntry": true,
+            "args": ["-s","/dev/ttyUSB0","-r","115200", "-k","5"]
         },
         {
             "type": "node",

@@ -13,6 +13,9 @@
   ],
   "dependencies": {
     "commander": "^2.20.0",
+    "jspack": "^0.0.4",
+    "serialport": "^10.4.0",
+    "underscore": "^1.13.6",
     "ws": "^6.2.1"
   },
   "bin": {

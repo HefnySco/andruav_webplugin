@@ -1,7 +1,6 @@
 "use strict";
 
 var WebSocketServer = require('ws').Server;
-
 var wsS;
 var Me = this;
 
