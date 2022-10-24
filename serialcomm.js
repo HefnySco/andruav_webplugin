@@ -1,4 +1,4 @@
-let colors = require('./colors.js');
+let colors = require('./helpers/colors.js');
 const { SerialPort } = require('serialport')
 var mavlink20 = require ('./mavlink').mavlink20;
 var MAVLink20Processor = require ('./mavlink').MAVLink20Processor;

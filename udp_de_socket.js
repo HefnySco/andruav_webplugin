@@ -1,6 +1,6 @@
 "use strict";
 
-let colors = require('./colors.js');
+let colors = require('./helpers/colors.js');
 const { SerialPort } = require('serialport')
 var mavlink20 = require ('./mavlink').mavlink20;
 var MAVLink20Processor = require ('./mavlink').MAVLink20Processor;
@@ -30,7 +30,7 @@ class udp_de_socket {
             Me._host = this.address().address;
             Me._isReady = true;
             Me.parent._onReady(Me.parent, Me._isReady);
-            console.log('UDP Listener Active ' + Me._host + ' at port ' + Me._port);
+            console.log('UDP Listener Active ' + Me._host + ':' + Me._port );
         });
         var Me = this;
         this._server.on('message', function (message, remote) {

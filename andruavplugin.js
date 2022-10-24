@@ -1,57 +1,31 @@
 #!/usr/bin/env node
 
 'use strict';
-let colors = require('./colors.js');
-//let udp = require ('./udpclient.js')
+global.colors = require('./helpers/colors.js');
+global.m_serverconfig   = require ('./js_serverConfig.js'); 
+
 let udp_de_socket = require ('./udp_de_socket.js');
 let program = require('commander');
 var pjson = require('./package.json');
-var SendMessage = undefined;
-let serial_active = false;
 var udp_main;
 program
   .version(pjson.version)
-  .option('-s --serial_port <path>', 'COM1, COM2, /dev/ttyUSB0')
-  .option('-r --serial_baud_rate <baudrate>', '9600,...,57600,115200', 57600)
-  .option('-k --serial_enc_key <key>', '1,2,3,string')
-  .option('-p --udp_target_port <port number>', 'Mission Planner UDP Port', 14550)
-  .option('-i --udp_target_ip <ip address>', 'Mission Planner IP - default is broadcast to all', '255.255.255.255')
+  .option('-c --config <path>', 'server.config')
+  .option('-s --sysids <true>/<false>', true)
   .parse(process.argv);
   
 
-// console.log (program.serial_port);
-// console.log (program.serial_baud_rate);
-// console.log (colors.colors.Bright + colors.colors.FgGreen +  'Welcome to ' +  colors.colors.FgYellow  + 'Andruav Web-Connector Telemetry' + colors.colors.FgGreen + ' version ' + colors.colors.FgYellow + pjson.version + colors.colors.Reset);
-// console.log(colors.colors.Bright + colors.colors.FgGreen +  'Mission Planner is at: ' + colors.colors.FgYellow + program.udp_target_ip + ':' + program.udp_target_port + colors.colors.Reset);
-udp_main = new udp_de_socket.udp_main (
-  {
-    host: "0.0.0.0",
-    port: "16655",
-    client_sockets: [
-      {
-        target_host: "127.0.0.1",
-        target_port: "16651",
-        sys_id: 10
-      },
-      {
-        target_host: "127.0.0.1",
-        target_port: "16652",
-        sys_id: 11
-      },
-      {
-        target_host: "127.0.0.1",
-        target_port: "16653",
-        sys_id: 12
-      },
-      {
-        target_host: "127.0.0.1",
-        target_port: "16654",
-        sys_id: 13
-      }
+var v_configFileName = global.m_serverconfig.getFileName();
 
-    ]
-  }
-);
+if (program.config != null)
+{
+  v_configFileName = program.config;
+}
+
+global.m_serverconfig.init(v_configFileName);
+
+udp_main = new udp_de_socket.udp_main (
+  global.m_serverconfig.m_configuration);
 
 
 // udp.startServer ("0.0.0.0","0",program.udp_target_port, program.udp_target_ip);
