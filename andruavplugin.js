@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 'use strict';
-global.colors = require('./helpers/colors.js');
+  global.colors = require('./helpers/colors.js');
 global.m_serverconfig   = require ('./js_serverConfig.js'); 
 
 let udp_de_socket = require ('./udp_de_socket.js');
