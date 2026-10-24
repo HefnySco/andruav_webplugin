@@ -149,16 +149,32 @@ class udp_main {
                 var m = p_mavlinkGCSProcessor.parseBuffer(message);
                 let messages_num = m.length;
                 
-                for (var i=0; i<messages_num; ++i)
+                if (m.length==0)
                 {
-                    const msg = m[i];
-                    if (msg.id == -1) continue;
+                    return ;
+                }
+                //for (var i=0; i<messages_num; ++i)
+                //{
+                    const msg = m[0];
+                    if (msg.id == -1) return;
                     const sys_id = msg.header.srcSystem;
                     const vehicle =  Me._client_sockets[sys_id];
-                    if (vehicle == null) continue;
+                    if (vehicle == null) return;
+                    // if (( (msg.id != 193) || (sys_id != 9)))
+                    // {
+                    //     return;
+                        
+                    // }
+                    // // console.log (msg.id);
+                    // console.log (message);
                     vehicle.socket.sendMessage(message);
+                    var m = p_mavlinkGCSProcessor.parseBuffer(message);
+                    //console.log (message);
                     //console.log ("I want this " + msg.header.srcSystem);
-                }
+                //}
+
+                
+                    
                 
                 // const len = m.length;
                 // for (var j=0 ; j< len; ++j)
